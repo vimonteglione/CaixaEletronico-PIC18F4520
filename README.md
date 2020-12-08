@@ -1,5 +1,5 @@
 # CaixaEletronico-PIC18F4520
-## Projeto que simula um caixa eletrônico, utilizando o microcontrolador PIC18F4520 no kit PICGenios.
+## Projeto que simula um caixa eletrônico, utilizando o microcontrolador PIC18F4520 no kit PICGenios e desenvolvido pelo MPLAB X IDE.
 
 ###### O projeto foi utilizado como avaliação da disciplina ECOP14 - Laboratório de Programação Embarcada do curso Engenharia de Computação da Universidade Federal de Itajubá. Foi desenvolvido em conjunto com aluno Luis Felipe Buzo.
 
