@@ -1,0 +1,1055 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"4 ./delay.h
+[; ;./delay.h: 4: void atraso_ms(int t);
+[v _atraso_ms `(v ~T0 @X0 0 ef1`i ]
+"11 ./caixaeletronica.h
+[; ;./caixaeletronica.h: 11: struct valor {
+[s S8 `uc -> 4 `i ]
+[n S8 valor x ]
+"8 ./teclado.h
+[; ;./teclado.h: 8:     unsigned char tc_tecla(unsigned int timeout);
+[v _tc_tecla `(uc ~T0 @X0 0 ef1`ui ]
+"16 ./lcd.h
+[; ;./lcd.h: 16: void lcd_dat(unsigned char val);
+[v _lcd_dat `(v ~T0 @X0 0 ef1`uc ]
+"15
+[; ;./lcd.h: 15: void lcd_cmd(unsigned char val);
+[v _lcd_cmd `(v ~T0 @X0 0 ef1`uc ]
+"38 ./config.h
+[p x OSC=HS ]
+"39
+[p x WDT=OFF ]
+"40
+[p x LVP=OFF ]
+"41
+[p x DEBUG = OFF ]
+"42
+[p x WDTPS = 1 ]
+"11 caixaeletronica.c
+[; ;caixaeletronica.c: 11: unsigned int atrasoMin = 20;
+[v _atrasoMin `ui ~T0 @X0 1 e ]
+[i _atrasoMin
+-> -> 20 `i `ui
+]
+"12
+[; ;caixaeletronica.c: 12: unsigned int atrasoMed = 150;
+[v _atrasoMed `ui ~T0 @X0 1 e ]
+[i _atrasoMed
+-> -> 150 `i `ui
+]
+"13
+[; ;caixaeletronica.c: 13: unsigned int atrasoMax = 1000;
+[v _atrasoMax `ui ~T0 @X0 1 e ]
+[i _atrasoMax
+-> -> 1000 `i `ui
+]
+"14
+[; ;caixaeletronica.c: 14: unsigned int atrasoMax2 = 3000;
+[v _atrasoMax2 `ui ~T0 @X0 1 e ]
+[i _atrasoMax2
+-> -> 3000 `i `ui
+]
+"15
+[; ;caixaeletronica.c: 15: unsigned int atrasoLed = 150;
+[v _atrasoLed `ui ~T0 @X0 1 e ]
+[i _atrasoLed
+-> -> 150 `i `ui
+]
+"17
+[; ;caixaeletronica.c: 17: void piscaLed() {
+[v _piscaLed `(v ~T0 @X0 1 ef ]
+{
+[e :U _piscaLed ]
+[f ]
+"18
+[; ;caixaeletronica.c: 18:     (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"19
+[; ;caixaeletronica.c: 19:     (*(volatile __near unsigned char*)0xF83) = 0x00;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"20
+[; ;caixaeletronica.c: 20:     (*(volatile __near unsigned char*)0xF93) = 0x00;
+[e = *U -> -> 3987 `i `*VNuc -> -> 0 `i `uc ]
+"21
+[; ;caixaeletronica.c: 21:     (*(volatile __near unsigned char*)0xF81) = 0x00;
+[e = *U -> -> 3969 `i `*VNuc -> -> 0 `i `uc ]
+"22
+[; ;caixaeletronica.c: 22:     for (int l = 0; l < 1; l++) {
+{
+[v _l `i ~T0 @X0 1 a ]
+[e = _l -> 0 `i ]
+[e $ < _l -> 1 `i 10  ]
+[e $U 11  ]
+[e :U 10 ]
+{
+"23
+[; ;caixaeletronica.c: 23:         (*(volatile __near unsigned char*)0xF83) = 0b00000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"24
+[; ;caixaeletronica.c: 24:         (*(volatile __near unsigned char*)0xF81) = 0b00000000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 0 `i `uc ]
+"25
+[; ;caixaeletronica.c: 25:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"26
+[; ;caixaeletronica.c: 26:         (*(volatile __near unsigned char*)0xF83) = 0b00000001;
+[e = *U -> -> 3971 `i `*VNuc -> -> 1 `i `uc ]
+"27
+[; ;caixaeletronica.c: 27:         (*(volatile __near unsigned char*)0xF81) = 0b10000000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 128 `i `uc ]
+"28
+[; ;caixaeletronica.c: 28:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"29
+[; ;caixaeletronica.c: 29:         (*(volatile __near unsigned char*)0xF83) = 0b00000010;
+[e = *U -> -> 3971 `i `*VNuc -> -> 2 `i `uc ]
+"30
+[; ;caixaeletronica.c: 30:         (*(volatile __near unsigned char*)0xF81) = 0b01000000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 64 `i `uc ]
+"31
+[; ;caixaeletronica.c: 31:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"32
+[; ;caixaeletronica.c: 32:         (*(volatile __near unsigned char*)0xF83) = 0b00000100;
+[e = *U -> -> 3971 `i `*VNuc -> -> 4 `i `uc ]
+"33
+[; ;caixaeletronica.c: 33:         (*(volatile __near unsigned char*)0xF81) = 0b00100000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 32 `i `uc ]
+"34
+[; ;caixaeletronica.c: 34:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"35
+[; ;caixaeletronica.c: 35:         (*(volatile __near unsigned char*)0xF83) = 0b00001000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 8 `i `uc ]
+"36
+[; ;caixaeletronica.c: 36:         (*(volatile __near unsigned char*)0xF81) = 0b00010000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 16 `i `uc ]
+"37
+[; ;caixaeletronica.c: 37:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"38
+[; ;caixaeletronica.c: 38:         (*(volatile __near unsigned char*)0xF83) = 0b00010000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 16 `i `uc ]
+"39
+[; ;caixaeletronica.c: 39:         (*(volatile __near unsigned char*)0xF81) = 0b00001000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 8 `i `uc ]
+"40
+[; ;caixaeletronica.c: 40:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"41
+[; ;caixaeletronica.c: 41:         (*(volatile __near unsigned char*)0xF83) = 0b00100000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 32 `i `uc ]
+"42
+[; ;caixaeletronica.c: 42:         (*(volatile __near unsigned char*)0xF81) = 0b00000100;
+[e = *U -> -> 3969 `i `*VNuc -> -> 4 `i `uc ]
+"43
+[; ;caixaeletronica.c: 43:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"44
+[; ;caixaeletronica.c: 44:         (*(volatile __near unsigned char*)0xF83) = 0b01000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 64 `i `uc ]
+"45
+[; ;caixaeletronica.c: 45:         (*(volatile __near unsigned char*)0xF81) = 0b00000010;
+[e = *U -> -> 3969 `i `*VNuc -> -> 2 `i `uc ]
+"46
+[; ;caixaeletronica.c: 46:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"47
+[; ;caixaeletronica.c: 47:         (*(volatile __near unsigned char*)0xF83) = 0b10000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 128 `i `uc ]
+"48
+[; ;caixaeletronica.c: 48:         (*(volatile __near unsigned char*)0xF81) = 0b00000001;
+[e = *U -> -> 3969 `i `*VNuc -> -> 1 `i `uc ]
+"49
+[; ;caixaeletronica.c: 49:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"50
+[; ;caixaeletronica.c: 50:         (*(volatile __near unsigned char*)0xF83) = 0b01000000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 64 `i `uc ]
+"51
+[; ;caixaeletronica.c: 51:         (*(volatile __near unsigned char*)0xF81) = 0b00000010;
+[e = *U -> -> 3969 `i `*VNuc -> -> 2 `i `uc ]
+"52
+[; ;caixaeletronica.c: 52:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"53
+[; ;caixaeletronica.c: 53:         (*(volatile __near unsigned char*)0xF83) = 0b00100000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 32 `i `uc ]
+"54
+[; ;caixaeletronica.c: 54:         (*(volatile __near unsigned char*)0xF81) = 0b00000100;
+[e = *U -> -> 3969 `i `*VNuc -> -> 4 `i `uc ]
+"55
+[; ;caixaeletronica.c: 55:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"56
+[; ;caixaeletronica.c: 56:         (*(volatile __near unsigned char*)0xF83) = 0b00010000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 16 `i `uc ]
+"57
+[; ;caixaeletronica.c: 57:         (*(volatile __near unsigned char*)0xF81) = 0b00001000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 8 `i `uc ]
+"58
+[; ;caixaeletronica.c: 58:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"59
+[; ;caixaeletronica.c: 59:         (*(volatile __near unsigned char*)0xF83) = 0b00001000;
+[e = *U -> -> 3971 `i `*VNuc -> -> 8 `i `uc ]
+"60
+[; ;caixaeletronica.c: 60:         (*(volatile __near unsigned char*)0xF81) = 0b00010000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 16 `i `uc ]
+"61
+[; ;caixaeletronica.c: 61:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"62
+[; ;caixaeletronica.c: 62:         (*(volatile __near unsigned char*)0xF83) = 0b00000100;
+[e = *U -> -> 3971 `i `*VNuc -> -> 4 `i `uc ]
+"63
+[; ;caixaeletronica.c: 63:         (*(volatile __near unsigned char*)0xF81) = 0b00100000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 32 `i `uc ]
+"64
+[; ;caixaeletronica.c: 64:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"65
+[; ;caixaeletronica.c: 65:         (*(volatile __near unsigned char*)0xF83) = 0b00000010;
+[e = *U -> -> 3971 `i `*VNuc -> -> 2 `i `uc ]
+"66
+[; ;caixaeletronica.c: 66:         (*(volatile __near unsigned char*)0xF81) = 0b01000000;
+[e = *U -> -> 3969 `i `*VNuc -> -> 64 `i `uc ]
+"67
+[; ;caixaeletronica.c: 67:         atraso_ms(atrasoLed);
+[e ( _atraso_ms (1 -> _atrasoLed `i ]
+"68
+[; ;caixaeletronica.c: 68:         (*(volatile __near unsigned char*)0xF83) = 0b00000001;
+[e = *U -> -> 3971 `i `*VNuc -> -> 1 `i `uc ]
+"69
+[; ;caixaeletronica.c: 69:         (*(volatile __near unsigned char*)0xF81) = 0b00000001;
+[e = *U -> -> 3969 `i `*VNuc -> -> 1 `i `uc ]
+"71
+[; ;caixaeletronica.c: 71:     }
+}
+[e ++ _l -> 1 `i ]
+[e $ < _l -> 1 `i 10  ]
+[e :U 11 ]
+}
+"72
+[; ;caixaeletronica.c: 72: }
+[e :UE 9 ]
+}
+"74
+[; ;caixaeletronica.c: 74: void exibeSeg(struct valor saldo) {
+[v _exibeSeg `(v ~T0 @X0 1 ef1`S8 ]
+{
+[e :U _exibeSeg ]
+[v _saldo `S8 ~T0 @X0 1 r1 ]
+[f ]
+"75
+[; ;caixaeletronica.c: 75:     int unsigned k, i;
+[v _k `ui ~T0 @X0 1 a ]
+[v _i `ui ~T0 @X0 1 a ]
+"77
+[; ;caixaeletronica.c: 77:     (((*(volatile __near unsigned char*)0xFF1)) &= ~(1<<7));
+[e =& *U -> -> 4081 `i `*VNuc -> ~ << -> 1 `i -> 7 `i `uc ]
+"78
+[; ;caixaeletronica.c: 78:     (*(volatile __near unsigned char*)0xFC1) = 0x0E;
+[e = *U -> -> 4033 `i `*VNuc -> -> 14 `i `uc ]
+"79
+[; ;caixaeletronica.c: 79:     (*(volatile __near unsigned char*)0xF92) = 0x00;
+[e = *U -> -> 3986 `i `*VNuc -> -> 0 `i `uc ]
+"80
+[; ;caixaeletronica.c: 80:     (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"81
+[; ;caixaeletronica.c: 81:     (*(volatile __near unsigned char*)0xF83) = 0x00;
+[e = *U -> -> 3971 `i `*VNuc -> -> 0 `i `uc ]
+"82
+[; ;caixaeletronica.c: 82:     while ((((*(volatile __near unsigned char*)0xF81)) & (1<<0))) {
+[e $U 14  ]
+[e :U 15 ]
+{
+"85
+[; ;caixaeletronica.c: 85:         if (saldo.x[3] == 48) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 48 `i 17  ]
+{
+"86
+[; ;caixaeletronica.c: 86:             (*(volatile __near unsigned char*)0xF83) = 0x3F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 63 `i `uc ]
+"87
+[; ;caixaeletronica.c: 87:         }
+}
+[e :U 17 ]
+"88
+[; ;caixaeletronica.c: 88:         if (saldo.x[3] == 49) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 49 `i 18  ]
+{
+"89
+[; ;caixaeletronica.c: 89:             (*(volatile __near unsigned char*)0xF83) = 0x06;
+[e = *U -> -> 3971 `i `*VNuc -> -> 6 `i `uc ]
+"90
+[; ;caixaeletronica.c: 90:         }
+}
+[e :U 18 ]
+"91
+[; ;caixaeletronica.c: 91:         if (saldo.x[3] == 50) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 50 `i 19  ]
+{
+"92
+[; ;caixaeletronica.c: 92:             (*(volatile __near unsigned char*)0xF83) = 0x5B;
+[e = *U -> -> 3971 `i `*VNuc -> -> 91 `i `uc ]
+"93
+[; ;caixaeletronica.c: 93:         }
+}
+[e :U 19 ]
+"94
+[; ;caixaeletronica.c: 94:         if (saldo.x[3] == 51) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 51 `i 20  ]
+{
+"95
+[; ;caixaeletronica.c: 95:             (*(volatile __near unsigned char*)0xF83) = 0x4F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 79 `i `uc ]
+"96
+[; ;caixaeletronica.c: 96:         }
+}
+[e :U 20 ]
+"97
+[; ;caixaeletronica.c: 97:         if (saldo.x[3] == 52) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 52 `i 21  ]
+{
+"98
+[; ;caixaeletronica.c: 98:             (*(volatile __near unsigned char*)0xF83) = 0x66;
+[e = *U -> -> 3971 `i `*VNuc -> -> 102 `i `uc ]
+"99
+[; ;caixaeletronica.c: 99:         }
+}
+[e :U 21 ]
+"100
+[; ;caixaeletronica.c: 100:         if (saldo.x[3] == 53) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 53 `i 22  ]
+{
+"101
+[; ;caixaeletronica.c: 101:             (*(volatile __near unsigned char*)0xF83) = 0x6D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 109 `i `uc ]
+"102
+[; ;caixaeletronica.c: 102:         }
+}
+[e :U 22 ]
+"103
+[; ;caixaeletronica.c: 103:         if (saldo.x[3] == 54) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 54 `i 23  ]
+{
+"104
+[; ;caixaeletronica.c: 104:             (*(volatile __near unsigned char*)0xF83) = 0x7D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 125 `i `uc ]
+"105
+[; ;caixaeletronica.c: 105:         }
+}
+[e :U 23 ]
+"106
+[; ;caixaeletronica.c: 106:         if (saldo.x[3] == 55) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 55 `i 24  ]
+{
+"107
+[; ;caixaeletronica.c: 107:             (*(volatile __near unsigned char*)0xF83) = 0x07;
+[e = *U -> -> 3971 `i `*VNuc -> -> 7 `i `uc ]
+"108
+[; ;caixaeletronica.c: 108:         }
+}
+[e :U 24 ]
+"109
+[; ;caixaeletronica.c: 109:         if (saldo.x[3] == 56) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 56 `i 25  ]
+{
+"110
+[; ;caixaeletronica.c: 110:             (*(volatile __near unsigned char*)0xF83) = 0x7F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 127 `i `uc ]
+"111
+[; ;caixaeletronica.c: 111:         }
+}
+[e :U 25 ]
+"112
+[; ;caixaeletronica.c: 112:         if (saldo.x[3] == 57) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 26  ]
+{
+"113
+[; ;caixaeletronica.c: 113:             (*(volatile __near unsigned char*)0xF83) = 0x6F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 111 `i `uc ]
+"114
+[; ;caixaeletronica.c: 114:         }
+}
+[e :U 26 ]
+"116
+[; ;caixaeletronica.c: 116:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<5));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 5 `i `uc ]
+"117
+[; ;caixaeletronica.c: 117:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"118
+[; ;caixaeletronica.c: 118:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<3));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 3 `i `uc ]
+"119
+[; ;caixaeletronica.c: 119:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<2));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"120
+[; ;caixaeletronica.c: 120:         for (k = 0; k < 1500; k++);
+{
+[e = _k -> -> 0 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 27  ]
+[e $U 28  ]
+[e :U 27 ]
+[e ++ _k -> -> 1 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 27  ]
+[e :U 28 ]
+}
+"123
+[; ;caixaeletronica.c: 123:         if (saldo.x[2] == 48) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 48 `i 30  ]
+{
+"124
+[; ;caixaeletronica.c: 124:             (*(volatile __near unsigned char*)0xF83) = 0x3F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 63 `i `uc ]
+"125
+[; ;caixaeletronica.c: 125:         }
+}
+[e :U 30 ]
+"126
+[; ;caixaeletronica.c: 126:         if (saldo.x[2] == 49) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 49 `i 31  ]
+{
+"127
+[; ;caixaeletronica.c: 127:             (*(volatile __near unsigned char*)0xF83) = 0x06;
+[e = *U -> -> 3971 `i `*VNuc -> -> 6 `i `uc ]
+"128
+[; ;caixaeletronica.c: 128:         }
+}
+[e :U 31 ]
+"129
+[; ;caixaeletronica.c: 129:         if (saldo.x[2] == 50) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 50 `i 32  ]
+{
+"130
+[; ;caixaeletronica.c: 130:             (*(volatile __near unsigned char*)0xF83) = 0x5B;
+[e = *U -> -> 3971 `i `*VNuc -> -> 91 `i `uc ]
+"131
+[; ;caixaeletronica.c: 131:         }
+}
+[e :U 32 ]
+"132
+[; ;caixaeletronica.c: 132:         if (saldo.x[2] == 51) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 51 `i 33  ]
+{
+"133
+[; ;caixaeletronica.c: 133:             (*(volatile __near unsigned char*)0xF83) = 0x4F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 79 `i `uc ]
+"134
+[; ;caixaeletronica.c: 134:         }
+}
+[e :U 33 ]
+"135
+[; ;caixaeletronica.c: 135:         if (saldo.x[2] == 52) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 52 `i 34  ]
+{
+"136
+[; ;caixaeletronica.c: 136:             (*(volatile __near unsigned char*)0xF83) = 0x66;
+[e = *U -> -> 3971 `i `*VNuc -> -> 102 `i `uc ]
+"137
+[; ;caixaeletronica.c: 137:         }
+}
+[e :U 34 ]
+"138
+[; ;caixaeletronica.c: 138:         if (saldo.x[2] == 53) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 53 `i 35  ]
+{
+"139
+[; ;caixaeletronica.c: 139:             (*(volatile __near unsigned char*)0xF83) = 0x6D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 109 `i `uc ]
+"140
+[; ;caixaeletronica.c: 140:         }
+}
+[e :U 35 ]
+"141
+[; ;caixaeletronica.c: 141:         if (saldo.x[2] == 54) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 54 `i 36  ]
+{
+"142
+[; ;caixaeletronica.c: 142:             (*(volatile __near unsigned char*)0xF83) = 0x7D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 125 `i `uc ]
+"143
+[; ;caixaeletronica.c: 143:         }
+}
+[e :U 36 ]
+"144
+[; ;caixaeletronica.c: 144:         if (saldo.x[2] == 55) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 55 `i 37  ]
+{
+"145
+[; ;caixaeletronica.c: 145:             (*(volatile __near unsigned char*)0xF83) = 0x07;
+[e = *U -> -> 3971 `i `*VNuc -> -> 7 `i `uc ]
+"146
+[; ;caixaeletronica.c: 146:         }
+}
+[e :U 37 ]
+"147
+[; ;caixaeletronica.c: 147:         if (saldo.x[2] == 56) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 56 `i 38  ]
+{
+"148
+[; ;caixaeletronica.c: 148:             (*(volatile __near unsigned char*)0xF83) = 0x7F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 127 `i `uc ]
+"149
+[; ;caixaeletronica.c: 149:         }
+}
+[e :U 38 ]
+"150
+[; ;caixaeletronica.c: 150:         if (saldo.x[2] == 57) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 39  ]
+{
+"151
+[; ;caixaeletronica.c: 151:             (*(volatile __near unsigned char*)0xF83) = 0x6F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 111 `i `uc ]
+"152
+[; ;caixaeletronica.c: 152:         }
+}
+[e :U 39 ]
+"154
+[; ;caixaeletronica.c: 154:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"155
+[; ;caixaeletronica.c: 155:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<4));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 4 `i `uc ]
+"156
+[; ;caixaeletronica.c: 156:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<3));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 3 `i `uc ]
+"157
+[; ;caixaeletronica.c: 157:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<2));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"158
+[; ;caixaeletronica.c: 158:         for (k = 0; k < 1500; k++);
+{
+[e = _k -> -> 0 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 40  ]
+[e $U 41  ]
+[e :U 40 ]
+[e ++ _k -> -> 1 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 40  ]
+[e :U 41 ]
+}
+"160
+[; ;caixaeletronica.c: 160:         if (saldo.x[1] == 48) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 48 `i 43  ]
+{
+"161
+[; ;caixaeletronica.c: 161:             (*(volatile __near unsigned char*)0xF83) = 0x3F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 63 `i `uc ]
+"162
+[; ;caixaeletronica.c: 162:         }
+}
+[e :U 43 ]
+"163
+[; ;caixaeletronica.c: 163:         if (saldo.x[1] == 49) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 49 `i 44  ]
+{
+"164
+[; ;caixaeletronica.c: 164:             (*(volatile __near unsigned char*)0xF83) = 0x06;
+[e = *U -> -> 3971 `i `*VNuc -> -> 6 `i `uc ]
+"165
+[; ;caixaeletronica.c: 165:         }
+}
+[e :U 44 ]
+"166
+[; ;caixaeletronica.c: 166:         if (saldo.x[1] == 50) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 50 `i 45  ]
+{
+"167
+[; ;caixaeletronica.c: 167:             (*(volatile __near unsigned char*)0xF83) = 0x5B;
+[e = *U -> -> 3971 `i `*VNuc -> -> 91 `i `uc ]
+"168
+[; ;caixaeletronica.c: 168:         }
+}
+[e :U 45 ]
+"169
+[; ;caixaeletronica.c: 169:         if (saldo.x[1] == 51) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 51 `i 46  ]
+{
+"170
+[; ;caixaeletronica.c: 170:             (*(volatile __near unsigned char*)0xF83) = 0x4F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 79 `i `uc ]
+"171
+[; ;caixaeletronica.c: 171:         }
+}
+[e :U 46 ]
+"172
+[; ;caixaeletronica.c: 172:         if (saldo.x[1] == 52) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 52 `i 47  ]
+{
+"173
+[; ;caixaeletronica.c: 173:             (*(volatile __near unsigned char*)0xF83) = 0x66;
+[e = *U -> -> 3971 `i `*VNuc -> -> 102 `i `uc ]
+"174
+[; ;caixaeletronica.c: 174:         }
+}
+[e :U 47 ]
+"175
+[; ;caixaeletronica.c: 175:         if (saldo.x[1] == 53) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 53 `i 48  ]
+{
+"176
+[; ;caixaeletronica.c: 176:             (*(volatile __near unsigned char*)0xF83) = 0x6D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 109 `i `uc ]
+"177
+[; ;caixaeletronica.c: 177:         }
+}
+[e :U 48 ]
+"178
+[; ;caixaeletronica.c: 178:         if (saldo.x[1] == 54) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 54 `i 49  ]
+{
+"179
+[; ;caixaeletronica.c: 179:             (*(volatile __near unsigned char*)0xF83) = 0x7D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 125 `i `uc ]
+"180
+[; ;caixaeletronica.c: 180:         }
+}
+[e :U 49 ]
+"181
+[; ;caixaeletronica.c: 181:         if (saldo.x[1] == 55) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 55 `i 50  ]
+{
+"182
+[; ;caixaeletronica.c: 182:             (*(volatile __near unsigned char*)0xF83) = 0x07;
+[e = *U -> -> 3971 `i `*VNuc -> -> 7 `i `uc ]
+"183
+[; ;caixaeletronica.c: 183:         }
+}
+[e :U 50 ]
+"184
+[; ;caixaeletronica.c: 184:         if (saldo.x[1] == 56) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 56 `i 51  ]
+{
+"185
+[; ;caixaeletronica.c: 185:             (*(volatile __near unsigned char*)0xF83) = 0x7F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 127 `i `uc ]
+"186
+[; ;caixaeletronica.c: 186:         }
+}
+[e :U 51 ]
+"187
+[; ;caixaeletronica.c: 187:         if (saldo.x[1] == 57) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 52  ]
+{
+"188
+[; ;caixaeletronica.c: 188:             (*(volatile __near unsigned char*)0xF83) = 0x6F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 111 `i `uc ]
+"189
+[; ;caixaeletronica.c: 189:         }
+}
+[e :U 52 ]
+"191
+[; ;caixaeletronica.c: 191:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"192
+[; ;caixaeletronica.c: 192:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"193
+[; ;caixaeletronica.c: 193:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<3));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 3 `i `uc ]
+"194
+[; ;caixaeletronica.c: 194:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<2));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"195
+[; ;caixaeletronica.c: 195:         for (k = 0; k < 1500; k++);
+{
+[e = _k -> -> 0 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 53  ]
+[e $U 54  ]
+[e :U 53 ]
+[e ++ _k -> -> 1 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 53  ]
+[e :U 54 ]
+}
+"197
+[; ;caixaeletronica.c: 197:         if (saldo.x[0] == 48) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 48 `i 56  ]
+{
+"198
+[; ;caixaeletronica.c: 198:             (*(volatile __near unsigned char*)0xF83) = 0x3F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 63 `i `uc ]
+"199
+[; ;caixaeletronica.c: 199:         }
+}
+[e :U 56 ]
+"200
+[; ;caixaeletronica.c: 200:         if (saldo.x[0] == 49) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 49 `i 57  ]
+{
+"201
+[; ;caixaeletronica.c: 201:             (*(volatile __near unsigned char*)0xF83) = 0x06;
+[e = *U -> -> 3971 `i `*VNuc -> -> 6 `i `uc ]
+"202
+[; ;caixaeletronica.c: 202:         }
+}
+[e :U 57 ]
+"203
+[; ;caixaeletronica.c: 203:         if (saldo.x[0] == 50) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 50 `i 58  ]
+{
+"204
+[; ;caixaeletronica.c: 204:             (*(volatile __near unsigned char*)0xF83) = 0x5B;
+[e = *U -> -> 3971 `i `*VNuc -> -> 91 `i `uc ]
+"205
+[; ;caixaeletronica.c: 205:         }
+}
+[e :U 58 ]
+"206
+[; ;caixaeletronica.c: 206:         if (saldo.x[0] == 51) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 51 `i 59  ]
+{
+"207
+[; ;caixaeletronica.c: 207:             (*(volatile __near unsigned char*)0xF83) = 0x4F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 79 `i `uc ]
+"208
+[; ;caixaeletronica.c: 208:         }
+}
+[e :U 59 ]
+"209
+[; ;caixaeletronica.c: 209:         if (saldo.x[0] == 52) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 52 `i 60  ]
+{
+"210
+[; ;caixaeletronica.c: 210:             (*(volatile __near unsigned char*)0xF83) = 0x66;
+[e = *U -> -> 3971 `i `*VNuc -> -> 102 `i `uc ]
+"211
+[; ;caixaeletronica.c: 211:         }
+}
+[e :U 60 ]
+"212
+[; ;caixaeletronica.c: 212:         if (saldo.x[0] == 53) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 53 `i 61  ]
+{
+"213
+[; ;caixaeletronica.c: 213:             (*(volatile __near unsigned char*)0xF83) = 0x6D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 109 `i `uc ]
+"214
+[; ;caixaeletronica.c: 214:         }
+}
+[e :U 61 ]
+"215
+[; ;caixaeletronica.c: 215:         if (saldo.x[0] == 54) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 54 `i 62  ]
+{
+"216
+[; ;caixaeletronica.c: 216:             (*(volatile __near unsigned char*)0xF83) = 0x7D;
+[e = *U -> -> 3971 `i `*VNuc -> -> 125 `i `uc ]
+"217
+[; ;caixaeletronica.c: 217:         }
+}
+[e :U 62 ]
+"218
+[; ;caixaeletronica.c: 218:         if (saldo.x[0] == 55) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 55 `i 63  ]
+{
+"219
+[; ;caixaeletronica.c: 219:             (*(volatile __near unsigned char*)0xF83) = 0x07;
+[e = *U -> -> 3971 `i `*VNuc -> -> 7 `i `uc ]
+"220
+[; ;caixaeletronica.c: 220:         }
+}
+[e :U 63 ]
+"221
+[; ;caixaeletronica.c: 221:         if (saldo.x[0] == 56) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 56 `i 64  ]
+{
+"222
+[; ;caixaeletronica.c: 222:             (*(volatile __near unsigned char*)0xF83) = 0x7F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 127 `i `uc ]
+"223
+[; ;caixaeletronica.c: 223:         }
+}
+[e :U 64 ]
+"224
+[; ;caixaeletronica.c: 224:         if (saldo.x[0] == 57) {
+[e $ ! == -> *U + &U . _saldo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 65  ]
+{
+"225
+[; ;caixaeletronica.c: 225:             (*(volatile __near unsigned char*)0xF83) = 0x6F;
+[e = *U -> -> 3971 `i `*VNuc -> -> 111 `i `uc ]
+"226
+[; ;caixaeletronica.c: 226:         }
+}
+[e :U 65 ]
+"227
+[; ;caixaeletronica.c: 227:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"228
+[; ;caixaeletronica.c: 228:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"229
+[; ;caixaeletronica.c: 229:         (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<3));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 3 `i `uc ]
+"230
+[; ;caixaeletronica.c: 230:         (((*(volatile __near unsigned char*)0xF80)) |= (1<<2));
+[e =| *U -> -> 3968 `i `*VNuc -> << -> 1 `i -> 2 `i `uc ]
+"231
+[; ;caixaeletronica.c: 231:         for (k = 0; k < 1500; k++);
+{
+[e = _k -> -> 0 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 66  ]
+[e $U 67  ]
+[e :U 66 ]
+[e ++ _k -> -> 1 `i `ui ]
+[e $ < _k -> -> 1500 `i `ui 66  ]
+[e :U 67 ]
+}
+"232
+[; ;caixaeletronica.c: 232:     }
+}
+[e :U 14 ]
+"82
+[; ;caixaeletronica.c: 82:     while ((((*(volatile __near unsigned char*)0xF81)) & (1<<0))) {
+[e $ != & -> *U -> -> 3969 `i `*VNuc `i << -> 1 `i -> 0 `i -> 0 `i 15  ]
+[e :U 16 ]
+"233
+[; ;caixaeletronica.c: 233:     (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<5));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 5 `i `uc ]
+"234
+[; ;caixaeletronica.c: 234:     (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<4));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 4 `i `uc ]
+"235
+[; ;caixaeletronica.c: 235:     (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<3));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 3 `i `uc ]
+"236
+[; ;caixaeletronica.c: 236:     (((*(volatile __near unsigned char*)0xF80)) &= ~(1<<2));
+[e =& *U -> -> 3968 `i `*VNuc -> ~ << -> 1 `i -> 2 `i `uc ]
+"237
+[; ;caixaeletronica.c: 237: }
+[e :UE 13 ]
+}
+"238
+[; ;caixaeletronica.c: 238: struct valor leconta(int op) {
+[v _leconta `(S8 ~T0 @X0 1 ef1`i ]
+{
+[e :U _leconta ]
+[v _op `i ~T0 @X0 1 r1 ]
+[f ]
+"239
+[; ;caixaeletronica.c: 239:     unsigned char i;
+[v _i `uc ~T0 @X0 1 a ]
+"240
+[; ;caixaeletronica.c: 240:     unsigned char j = 0;
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+"241
+[; ;caixaeletronica.c: 241:     unsigned char tmp = 0x30;
+[v _tmp `uc ~T0 @X0 1 a ]
+[e = _tmp -> -> 48 `i `uc ]
+"242
+[; ;caixaeletronica.c: 242:     struct valor saldo;
+[v _saldo `S8 ~T0 @X0 1 a ]
+"243
+[; ;caixaeletronica.c: 243:     while (tmp < 0x3C) {
+[e $U 70  ]
+[e :U 71 ]
+{
+"245
+[; ;caixaeletronica.c: 245:         (*(volatile __near unsigned char*)0xF95) = 0x0F;
+[e = *U -> -> 3989 `i `*VNuc -> -> 15 `i `uc ]
+"246
+[; ;caixaeletronica.c: 246:         tmp = tc_tecla(0) + 0x30;
+[e = _tmp -> + -> ( _tc_tecla (1 -> -> 0 `i `ui `i -> 48 `i `uc ]
+"247
+[; ;caixaeletronica.c: 247:         (*(volatile __near unsigned char*)0xF95) = 0x00;
+[e = *U -> -> 3989 `i `*VNuc -> -> 0 `i `uc ]
+"249
+[; ;caixaeletronica.c: 249:         if (op == 0) {
+[e $ ! == _op -> 0 `i 73  ]
+{
+"250
+[; ;caixaeletronica.c: 250:             saldo.x[j] = tmp + j;
+[e = *U + &U . _saldo 0 * -> _j `ux -> -> # *U &U . _saldo 0 `ui `ux -> + -> _tmp `i -> _j `i `uc ]
+"251
+[; ;caixaeletronica.c: 251:             if (saldo.x[j] > 57) {
+[e $ ! > -> *U + &U . _saldo 0 * -> _j `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 74  ]
+{
+"252
+[; ;caixaeletronica.c: 252:                 saldo.x[j] = 53;
+[e = *U + &U . _saldo 0 * -> _j `ux -> -> # *U &U . _saldo 0 `ui `ux -> -> 53 `i `uc ]
+"253
+[; ;caixaeletronica.c: 253:             }
+}
+[e :U 74 ]
+"254
+[; ;caixaeletronica.c: 254:         }
+}
+[e :U 73 ]
+"255
+[; ;caixaeletronica.c: 255:         if (op == 1) {
+[e $ ! == _op -> 1 `i 75  ]
+{
+"256
+[; ;caixaeletronica.c: 256:             saldo.x[j] = tmp;
+[e = *U + &U . _saldo 0 * -> _j `ux -> -> # *U &U . _saldo 0 `ui `ux _tmp ]
+"257
+[; ;caixaeletronica.c: 257:         }
+}
+[e :U 75 ]
+"259
+[; ;caixaeletronica.c: 259:         lcd_dat(tmp);
+[e ( _lcd_dat (1 _tmp ]
+"260
+[; ;caixaeletronica.c: 260:         if (tmp == 0x3A) {
+[e $ ! == -> _tmp `i -> 58 `i 76  ]
+{
+"261
+[; ;caixaeletronica.c: 261:             lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"262
+[; ;caixaeletronica.c: 262:             for (i = 0; i < 16; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 16 `i 77  ]
+[e $U 78  ]
+[e :U 77 ]
+{
+"263
+[; ;caixaeletronica.c: 263:                 lcd_dat(i % 2);
+[e ( _lcd_dat (1 -> % -> _i `i -> 2 `i `uc ]
+"264
+[; ;caixaeletronica.c: 264:                 atraso_ms(atrasoMin);
+[e ( _atraso_ms (1 -> _atrasoMin `i ]
+"265
+[; ;caixaeletronica.c: 265:             }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 16 `i 77  ]
+[e :U 78 ]
+}
+"266
+[; ;caixaeletronica.c: 266:             lcd_cmd(0xC0);
+[e ( _lcd_cmd (1 -> -> 192 `i `uc ]
+"267
+[; ;caixaeletronica.c: 267:         }
+}
+[e :U 76 ]
+"268
+[; ;caixaeletronica.c: 268:         j++;
+[e ++ _j -> -> 1 `i `uc ]
+"269
+[; ;caixaeletronica.c: 269:     }
+}
+[e :U 70 ]
+"243
+[; ;caixaeletronica.c: 243:     while (tmp < 0x3C) {
+[e $ < -> _tmp `i -> 60 `i 71  ]
+[e :U 72 ]
+"270
+[; ;caixaeletronica.c: 270:     return saldo;
+[e ) _saldo ]
+[e $UE 69  ]
+"271
+[; ;caixaeletronica.c: 271: }
+[e :UE 69 ]
+}
+"273
+[; ;caixaeletronica.c: 273: struct valor soma(struct valor saldo, struct valor dep) {
+[v _soma `(S8 ~T0 @X0 1 ef2`S8`S8 ]
+{
+[e :U _soma ]
+[v _saldo `S8 ~T0 @X0 1 r1 ]
+[v _dep `S8 ~T0 @X0 1 r2 ]
+[f ]
+"274
+[; ;caixaeletronica.c: 274:     for (int i = 3; i > 0; i--) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 3 `i ]
+[e $ > _i -> 0 `i 81  ]
+[e $U 82  ]
+[e :U 81 ]
+{
+"275
+[; ;caixaeletronica.c: 275:         saldo.x[i] = saldo.x[i] + dep.x[i] - 0x30;
+[e = *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> - + -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> *U + &U . _dep 0 * -> -> _i `ui `ux -> -> # *U &U . _dep 0 `ui `ux `i -> 48 `i `uc ]
+"276
+[; ;caixaeletronica.c: 276:         if (saldo.x[i] > 57) {
+[e $ ! > -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 57 `i 84  ]
+{
+"277
+[; ;caixaeletronica.c: 277:             saldo.x[i] = saldo.x[i] - 10;
+[e = *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> - -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 10 `i `uc ]
+"278
+[; ;caixaeletronica.c: 278:             saldo.x[i - 1] = saldo.x[i - 1] + 1;
+[e = *U + &U . _saldo 0 * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> + -> *U + &U . _saldo 0 * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 1 `i `uc ]
+"279
+[; ;caixaeletronica.c: 279:         }
+}
+[e :U 84 ]
+"280
+[; ;caixaeletronica.c: 280:     }
+}
+[e -- _i -> 1 `i ]
+[e $ > _i -> 0 `i 81  ]
+[e :U 82 ]
+}
+"281
+[; ;caixaeletronica.c: 281:     return saldo;
+[e ) _saldo ]
+[e $UE 80  ]
+"282
+[; ;caixaeletronica.c: 282: }
+[e :UE 80 ]
+}
+"284
+[; ;caixaeletronica.c: 284: struct valor subtrai(struct valor saldo, struct valor sac) {
+[v _subtrai `(S8 ~T0 @X0 1 ef2`S8`S8 ]
+{
+[e :U _subtrai ]
+[v _saldo `S8 ~T0 @X0 1 r1 ]
+[v _sac `S8 ~T0 @X0 1 r2 ]
+[f ]
+"285
+[; ;caixaeletronica.c: 285:     for (int i = 3; i > 0; i--) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 3 `i ]
+[e $ > _i -> 0 `i 86  ]
+[e $U 87  ]
+[e :U 86 ]
+{
+"286
+[; ;caixaeletronica.c: 286:         if (saldo.x[i] >= sac.x[i]) {
+[e $ ! >= -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> *U + &U . _sac 0 * -> -> _i `ui `ux -> -> # *U &U . _sac 0 `ui `ux `i 89  ]
+{
+"287
+[; ;caixaeletronica.c: 287:             saldo.x[i] = saldo.x[i] - sac.x[i] + 0x30;
+[e = *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> + - -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> *U + &U . _sac 0 * -> -> _i `ui `ux -> -> # *U &U . _sac 0 `ui `ux `i -> 48 `i `uc ]
+"288
+[; ;caixaeletronica.c: 288:         } else {
+}
+[e $U 90  ]
+[e :U 89 ]
+{
+"289
+[; ;caixaeletronica.c: 289:             saldo.x[i - 1] = saldo.x[i - 1] - 1;
+[e = *U + &U . _saldo 0 * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> - -> *U + &U . _saldo 0 * -> -> - _i -> 1 `i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 1 `i `uc ]
+"290
+[; ;caixaeletronica.c: 290:             saldo.x[i] = saldo.x[i] + 10;
+[e = *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux -> + -> *U + &U . _saldo 0 * -> -> _i `ui `ux -> -> # *U &U . _saldo 0 `ui `ux `i -> 10 `i `uc ]
+"291
+[; ;caixaeletronica.c: 291:             i++;
+[e ++ _i -> 1 `i ]
+"292
+[; ;caixaeletronica.c: 292:         }
+}
+[e :U 90 ]
+"293
+[; ;caixaeletronica.c: 293:     }
+}
+[e -- _i -> 1 `i ]
+[e $ > _i -> 0 `i 86  ]
+[e :U 87 ]
+}
+"294
+[; ;caixaeletronica.c: 294:     return saldo;
+[e ) _saldo ]
+[e $UE 85  ]
+"295
+[; ;caixaeletronica.c: 295: }
+[e :UE 85 ]
+}

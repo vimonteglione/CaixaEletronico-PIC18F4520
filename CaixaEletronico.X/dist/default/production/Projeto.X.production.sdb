@@ -1,0 +1,210 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"17 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _piscaLed piscaLed `(v  1 e 1 0 ]
+"74
+[v _exibeSeg exibeSeg `(v  1 e 1 0 ]
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"238 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _leconta leconta `(S29  1 e 4 0 ]
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"273 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _soma soma `(S29  1 e 4 0 ]
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"284 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _subtrai subtrai `(S29  1 e 4 0 ]
+"3 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\delay.c
+[v _atraso_ms atraso_ms `(v  1 e 1 0 ]
+"5 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\lcd.c
+[v _lcd_wr lcd_wr `(v  1 e 1 0 ]
+"9
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+"19
+[v _lcd_dat lcd_dat `(v  1 e 1 0 ]
+"29
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"47
+[v _lcd_str lcd_str `(v  1 e 1 0 ]
+"10 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+"14 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
+"10
+[v _linha linha `C[4]uc  1 e 4 0 ]
+"10 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"67
+[v main@h_141 h `i  1 a 2 40 ]
+"52
+[v main@h h `i  1 a 2 45 ]
+"140
+[v main@h_151 h `i  1 a 2 42 ]
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"11
+[v main@saldo saldo `S29  1 a 4 47 ]
+"14
+[v main@conta conta `S29  1 a 4 36 ]
+"13
+[v main@sac sac `S29  1 a 4 30 ]
+"12
+[v main@dep dep `S29  1 a 4 26 ]
+"16
+[v main@flag flag `i  1 a 2 34 ]
+"15
+[v main@est est `uc  1 a 1 44 ]
+"146
+} 0
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"284 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _subtrai subtrai `(S29  1 e 4 0 ]
+{
+"285
+[v subtrai@i i `i  1 a 2 17 ]
+"284
+[v subtrai@saldo saldo `S29  1 p 4 0 ]
+[v subtrai@sac sac `S29  1 p 4 4 ]
+"295
+} 0
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"273 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _soma soma `(S29  1 e 4 0 ]
+{
+"274
+[v soma@i i `i  1 a 2 17 ]
+"273
+[v soma@saldo saldo `S29  1 p 4 0 ]
+[v soma@dep dep `S29  1 p 4 4 ]
+"282
+} 0
+"17
+[v _piscaLed piscaLed `(v  1 e 1 0 ]
+{
+"22
+[v piscaLed@l l `i  1 a 2 6 ]
+"72
+} 0
+"11 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X/caixaeletronica.h
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"238 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _leconta leconta `(S29  1 e 4 0 ]
+{
+"242
+[v leconta@saldo saldo `S29  1 a 4 21 ]
+"241
+[v leconta@tmp tmp `uc  1 a 1 20 ]
+"240
+[v leconta@j j `uc  1 a 1 19 ]
+"239
+[v leconta@i i `uc  1 a 1 18 ]
+"238
+[v leconta@op op `i  1 p 2 13 ]
+"271
+} 0
+"14 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\teclado.c
+[v _tc_tecla tc_tecla `(uc  1 e 1 0 ]
+{
+"15
+[v tc_tecla@to to `ui  1 a 2 8 ]
+"16
+[v tc_tecla@i i `uc  1 a 1 12 ]
+"17
+[v tc_tecla@ret ret `uc  1 a 1 11 ]
+"18
+[v tc_tecla@tmp tmp `uc  1 a 1 10 ]
+"14
+[v tc_tecla@timeout timeout `ui  1 p 2 6 ]
+"66
+} 0
+"47 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\lcd.c
+[v _lcd_str lcd_str `(v  1 e 1 0 ]
+{
+"48
+[v lcd_str@i i `uc  1 a 1 11 ]
+"47
+[v lcd_str@str str `*.32Cuc  1 p 2 7 ]
+"54
+} 0
+"19
+[v _lcd_dat lcd_dat `(v  1 e 1 0 ]
+{
+[v lcd_dat@val val `uc  1 a 1 wreg ]
+[v lcd_dat@val val `uc  1 a 1 wreg ]
+[v lcd_dat@val val `uc  1 a 1 6 ]
+"27
+} 0
+"29
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+"45
+} 0
+"9
+[v _lcd_cmd lcd_cmd `(v  1 e 1 0 ]
+{
+[v lcd_cmd@val val `uc  1 a 1 wreg ]
+[v lcd_cmd@val val `uc  1 a 1 wreg ]
+[v lcd_cmd@val val `uc  1 a 1 6 ]
+"17
+} 0
+"5
+[v _lcd_wr lcd_wr `(v  1 e 1 0 ]
+{
+[v lcd_wr@val val `uc  1 a 1 wreg ]
+[v lcd_wr@val val `uc  1 a 1 wreg ]
+[v lcd_wr@val val `uc  1 a 1 0 ]
+"7
+} 0
+"3 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\delay.c
+[v _atraso_ms atraso_ms `(v  1 e 1 0 ]
+{
+"5
+[v atraso_ms@i i `VEui  1 a 2 2 ]
+"4
+[v atraso_ms@k k `VEuc  1 a 1 5 ]
+[v atraso_ms@j j `VEuc  1 a 1 4 ]
+"3
+[v atraso_ms@t t `i  1 p 2 0 ]
+"12
+} 0
+"74 C:\Users\x_nak\OneDrive\Área de Trabalho\UNIFEI EAD\LAB PROG EMBARCADA - ECOP14\Projeto final (Caixa Eletrônico)\CaixaEletronico.X\caixaeletronica.c
+[v _exibeSeg exibeSeg `(v  1 e 1 0 ]
+{
+"75
+[v exibeSeg@k k `ui  1 a 2 4 ]
+[s S29 valor 4 `[4]uc 1 x 4 0 ]
+"74
+[v exibeSeg@saldo saldo `S29  1 p 4 0 ]
+"237
+} 0
